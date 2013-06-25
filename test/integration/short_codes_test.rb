@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class ShortCodesTest < ActionDispatch::IntegrationTest
-  test "can create short codes" do
+  test "can create short codes if logged in" do
+    sign_in_user
     visit root_path
     click_link 'Click here to create a new short link'
     fill_in 'url_link',  with: "http://reddit.com"
